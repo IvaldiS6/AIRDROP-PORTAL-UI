@@ -1,0 +1,138 @@
+.App {
+  height: 100vh;
+  background-color: #000b22;
+  overflow: scroll;
+  text-align: center;
+}
+
+.container {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px 0 30px;
+}
+
+.authed-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.header {
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.sub-text {
+  font-size: 25px;
+  color: white;
+}
+
+.gradient-text {
+  background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 45px;
+}
+
+.twitter-logo {
+  width: 35px;
+  height: 35px;
+}
+
+.footer-text {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.connected-container input[type='text'] {
+  display: inline-block;
+  color: white;
+  padding: 10px;
+  width: 50%;
+  height: 60px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 10px;
+  margin: 50px auto;
+}
+
+.connected-container button {
+  height: 50px;
+}
+
+.button {
+  background-color: #0047D9;
+  height: 45px;
+  border: 0;
+  width: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.walletAddress {
+  color: white;
+}
+
+.formSection {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 5px;
+  width: 750px;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  text-align: left;
+}
+
+.formSection p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.formSection p {
+margin:20px 0px;
+}
+.formSection h1 {
+  margin:0px;
+  text-align: left;
+}
+.submitButton button {
+  margin-top: 30px;
+  background-color: #0047D9;
+  height: 45px;
+  border: 0;
+  width: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
