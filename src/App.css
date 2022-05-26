@@ -94,7 +94,8 @@
   color: white;
 }
 
-.walletAddress {
+.walletAddress,
+.balance {
   color: white;
 }
 

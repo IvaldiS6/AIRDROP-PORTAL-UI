@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
 import NumericInput from 'react-numeric-input';
-
+import { Connection, PublicKey, clusterApiUrl , LAMPORTS_PER_SOL} from '@solana/web3.js' //removed unused imports - WILLIAM
 
 // Constants
 const TWITTER_HANDLE = 'ItsWilliam77';
@@ -14,6 +14,9 @@ const TWITTER_LINK2 = `https://twitter.com/${TWITTER_HANDLE2}`;
 const App = () => {
   // State
   const [walletAddress, setWalletAddress] = useState(null);
+    const [solBalance, setSolBalance] = useState(null); // Created new state - WILLIAM
+
+//  const balance = connection.getBalance(walletAddress);
 
   // Actions
   const checkIfWalletIsConnected = async () => {
@@ -27,11 +30,29 @@ const App = () => {
           console.log('Connected with Public Key:', response.publicKey.toString()
           );
 
+                    // GET BALANCE STUFF - WILLIAM
 
+          let connection = new Connection(clusterApiUrl("mainnet-beta"));
+          let pubkey = new PublicKey(response.publicKey);
+          const balance = await connection.getBalance(pubkey)
+          if(balance)
+            console.log('Solana Balance:', balance / LAMPORTS_PER_SOL);
+
+          // END GET BALANCE STUFF - WILLIAM
+
+//TIME TO GET TOKENS - BRANDON
+          // let connection = new Connection(clusterApiUrl("mainnet-beta"));
+       //   let pubkey = new PublicKey(response.publicKey);
+      //    const balance = await connection.getBalance(pubkey)
+ //         if(balance)
+     //       console.log('Token Balance:', balance
+//END GET TOKENS - BRANDON
+          
           /*
            * Set the user's publicKey in state to be used later!
            */
-          setWalletAddress(response.publicKey.toString());
+          //setWalletAddress(response.publicKey.toString());
+                    setSolBalance(balance / LAMPORTS_PER_SOL); // UPDATE solBalance State - WILLIAM
         }
       } else {
         alert('Solana object not found! Get a Phantom Wallet 👻');
@@ -49,11 +70,8 @@ const App = () => {
       console.log('Connected with Public Key:', response.publicKey.toString());
       setWalletAddress(response.publicKey.toString());
     }
-  };
+  }; 
 
-
-
-  
   const renderNotConnectedContainer = () => (
     <button
       className="cta-button connect-wallet-button button"
@@ -67,6 +85,8 @@ const App = () => {
   const renderConnectedContainer = () => (
 <div>
 <div className='walletAddress'><p>Connected Wallet: {walletAddress}</p></div>
+<div className='balance'><p>Available SOL: {solBalance}</p></div>
+
 </div>
   );
 
